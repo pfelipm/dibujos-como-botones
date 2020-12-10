@@ -13,8 +13,8 @@ const buttonB2 = () => switching('buttonB2');
 
 // Button coordinates inside sheet
 const buttonsRowCol = [
-  {name: 'buttonA', row: 3, col: 3},
-  {name: 'buttonB', row: 6, col: 3},
+  {name: 'buttonA', row: 3, col: 3, function: test1},
+  {name: 'buttonB', row: 6, col: 3, function: test2}
 ];
 
 /**
@@ -41,6 +41,18 @@ function switching(name) {
       d.setPosition(buttonRowCol.row, buttonRowCol.col, 0, 0);
     }
   });
+
+  // Invoke function
+  buttonRowCol.function();
+
+}
+
+function test1(){
+  SpreadsheetApp.getActiveSpreadsheet().toast('Test1() has been called');
+}
+
+function test2(){
+  SpreadsheetApp.getActiveSpreadsheet().toast('Test2() has been called');
 }
 
 /**
