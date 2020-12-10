@@ -20,4 +20,4 @@ This alternate approach hides drawings (buttons) accordingly by moving them beyo
   });
 ```
 
-This toggle function supports several buttons in the same sheet, adjusting the rows and columns were they should be placed as expected, and calls the assigned code for each of them.
+This toggle function supports several buttons in the same sheet, adjusting the rows and columns were they should be placed, as expected, and calls the assigned code for each of them.
