@@ -44,7 +44,7 @@ function switching(name) {
 }
 
 /**
- * Bring all buttons back!
+ * Aux: Bring all buttons back!
  */
 function resetDrawings() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
