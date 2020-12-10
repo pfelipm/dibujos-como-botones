@@ -2,7 +2,7 @@
 
 Sample code that shows how to use Google Sheets drawings as conventional UI buttons to invoke Apps Script functions. Code is based on this post ([Switching Buttons for Google Spreadsheet using Google Apps Script](https://tanaikech.github.io/2020/07/27/switching-buttons-for-google-spreadsheet-using-google-apps-script/)) by **Kanshi TANAIKE**, that demonstrates different ways of emulating the look and feel of standard buttons inside Google Sheets.
 
-More specifically, this function _very slightly_ improves upon Kanshi's _pattern 1_, where alternate drawings are used as a single button, that nevertheless requires changing focus from the current sheet to a temporary one and back again for changes to visually take effect\_.
+More specifically, this function _very slightly_ improves upon Kanshi's _pattern 1_, where alternate drawings are used as a single button, that nevertheless **requires changing focus** from the current sheet to a temporary one and back again for changes to visually take effect.
 
 ![Alternar botones con dibujos hdc](https://user-images.githubusercontent.com/12829262/101820807-650c4b80-3b27-11eb-8263-49975712fc03.gif)
 
