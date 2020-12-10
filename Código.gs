@@ -32,7 +32,7 @@ function switching(name) {
   const currentDrawingName = drawings[0].getOnAction() == name ? name : drawings[1].getOnAction();
   const buttonRowCol = buttonsRowCol.find(b => b.name == currentDrawingName.slice(0, -1));
   
-  // Toggle button state by moving appropiate drawing beyond sheet bounds
+  // Toggle button state by moving appropiate drawing beyond sheet bounds before processing
   drawings.forEach(d => {
     if (d.getOnAction() == name) {
       d.setPosition(1, 1, -1000, -1000); // << Moving out of sight does not require changing focus to / from another sheet to refresh!
@@ -41,16 +41,21 @@ function switching(name) {
       d.setPosition(buttonRowCol.row, buttonRowCol.col, 0, 0);
     }
   });
-
-  // Invoke function
+  
+  // Invoke button's function
   buttonRowCol.function();
-
 }
 
+/**
+ * Function invoked by button test 1
+ */
 function test1(){
   SpreadsheetApp.getActiveSpreadsheet().toast('Test1() has been called');
 }
 
+/**
+ * Function invoked by button test 2
+ */
 function test2(){
   SpreadsheetApp.getActiveSpreadsheet().toast('Test2() has been called');
 }
