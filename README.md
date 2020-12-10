@@ -6,7 +6,7 @@ More specifically, this function _very slightly_ improves upon Kanshi's _pattern
 
 ![Alternar botones con dibujos en hdc](https://user-images.githubusercontent.com/12829262/101817820-3f7d4300-3b23-11eb-88a2-01a76ac3aae8.gif)
 
-This alternate approach hides drawings (buttons) accordingly by moving them beyond the boundaries of the current sheet. To accomplish that, **negative offsets** are applied to them using method [setPosition()](https://developers.google.com/apps-script/reference/spreadsheet/drawing#setPosition(Integer,Integer,Integer,Integer)) of class `Drawing`. **This does not require any kind of trick to update the presentation**, apparently not even the use of `SpreadsheetApp.flush()`.
+This alternate approach hides drawings (buttons) accordingly by moving them beyond the boundaries of the current sheet. To accomplish that, **negative offsets** are applied to them using method [setPosition()](https://developers.google.com/apps-script/reference/spreadsheet/drawing#setPosition(Integer,Integer,Integer,Integer)) of class `Drawing`. **This does not require any kind of trick to update the presentation**, apparently not even the use of `SpreadsheetApp.flush()`, unless several updates are required during a single run of the control function.
 
 ```javascript
  // Toggle button state by moving appropiate drawing beyond sheet bounds
