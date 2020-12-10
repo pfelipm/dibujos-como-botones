@@ -18,7 +18,7 @@ const buttonsRowCol = [
 ];
 
 /**
- * Toggles buttons
+ * Toggle buttons
  */
 function switching(name) {
 
