@@ -9,15 +9,21 @@ More specifically, this function _very slightly_ improves upon Kanshi's _pattern
 This alternate approach hides drawings (buttons) accordingly by moving them beyond the boundaries of the current sheet. To accomplish that, **large negative offsets** are applied to them using method [setPosition()](https://developers.google.com/apps-script/reference/spreadsheet/drawing#setPosition(Integer,Integer,Integer,Integer)) of class `Drawing`. **This does not require any kind of trick to force update the visual presentation**, apparently not even the use of `SpreadsheetApp.flush()`, unless several updates are required during a single run of the toggle function.
 
 ```javascript
- // Toggle button state by moving appropiate drawing beyond sheet bounds
-  drawings.forEach(d => {
-    if (d.getOnAction() == name) {
-      d.setPosition(1, 1, -1000, -1000); // << Moving out of sight does not require changing focus to / from another sheet to refresh!
-    }
-    else {
-      d.setPosition(buttonRowCol.row, buttonRowCol.col, 0, 0);
-    }
-  });
+// Toggle button status by moving appropiate drawing beyond sheet bounds before processing,
+// moving out of sight does not require changing focus to / from another sheet to refresh!
+let buttonStatus;
+drawings.forEach(d => {
+  if (d.getOnAction() == name) {
+    // Move button out of sheet
+    d.setPosition(1, 1, -1000, -1000);
+  }
+  else {
+    // Restore button to its original position
+    d.setPosition(buttonRowCol.row, buttonRowCol.col, 0, 0);
+    // Log button status, if used *after* (but not before) 🤔 d.setPosition() in if-branch above some flicker manifests! 
+    buttonStatus = d.getOnAction().slice(-3) == '_On' ? 'active' : 'inactive';
+  }
+});
 ```
 
 This toggle function supports several buttons in the same sheet, adjusts their rows and columns as needed, and calls the assigned Apps Script function for each of them.
