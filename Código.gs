@@ -44,7 +44,7 @@ function switching(name) {
       // Restore button to its original position
       d.setPosition(buttonRowCol.row, buttonRowCol.col, 0, 0);
       // Log button status
-      buttonStatus = d.getOnAction().slice(-3) == '_On' ? 'active' : 'inactive'; // If used after .setPosition in if branch above some flicker manifests! 🤔 
+      buttonStatus = d.getOnAction().slice(-3) == '_On' ? 'active' : 'inactive'; // If used *after* (but not before) 🤔 d.setPosition() in if branch above some flicker manifests! 
 
     }
   });
