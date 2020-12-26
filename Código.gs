@@ -37,11 +37,15 @@ function switching(name) {
   let buttonStatus;
   drawings.forEach(d => {
     if (d.getOnAction() == name) {
+      // Move button out of sheet
       d.setPosition(1, 1, -1000, -1000);
-      buttonStatus = d.getOnAction().slice(-3) == '_On' ? 'inactive color' : 'active color';
     }
     else {
+      // Restore button to its original position
       d.setPosition(buttonRowCol.row, buttonRowCol.col, 0, 0);
+      // Log button status
+      buttonStatus = d.getOnAction().slice(-3) == '_On' ? 'active' : 'inactive'; // If used after .setPosition in if branch above some flicker manifests! 🤔 
+
     }
   });
   
@@ -53,14 +57,14 @@ function switching(name) {
  * Function invoked by button test 1
  */
 function test1(buttonStatus){
-  SpreadsheetApp.getActiveSpreadsheet().toast(`Test1() has been called, button has ${buttonStatus}.`);
+  SpreadsheetApp.getActiveSpreadsheet().toast(`Test1() has been called, button has ${buttonStatus} color.`);
 }
 
 /**
  * Function invoked by button test 2
  */
 function test2(buttonStatus){
-  SpreadsheetApp.getActiveSpreadsheet().toast(`Test2() has been called, button has ${buttonStatus}.`);
+  SpreadsheetApp.getActiveSpreadsheet().toast(`Test2() has been called, button has ${buttonStatus} color.`);
 }
 
 /**
