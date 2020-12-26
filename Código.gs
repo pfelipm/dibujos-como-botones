@@ -45,7 +45,6 @@ function switching(name) {
       d.setPosition(buttonRowCol.row, buttonRowCol.col, 0, 0);
       // Log button status, if used *after* (but not before) 🤔 d.setPosition() in if-branch above some flicker manifests! 
       buttonStatus = d.getOnAction().slice(-3) == '_On' ? 'active' : 'inactive';
-
     }
   });
   
@@ -56,24 +55,22 @@ function switching(name) {
 /**
  * Function invoked by button test 1
  */
-function test1(buttonStatus){
-  SpreadsheetApp.getActiveSpreadsheet().toast(`Test1() has been called, button has ${buttonStatus} color.`);
-}
+function test1(buttonStatus) {SpreadsheetApp.getActiveSpreadsheet().toast(`Test1() has been called, button has ${buttonStatus} color.`);}
 
 /**
  * Function invoked by button test 2
  */
-function test2(buttonStatus){
-  SpreadsheetApp.getActiveSpreadsheet().toast(`Test2() has been called, button has ${buttonStatus} color.`);
-}
+function test2(buttonStatus) {SpreadsheetApp.getActiveSpreadsheet().toast(`Test2() has been called, button has ${buttonStatus} color.`);}
 
 /**
  * Aux: Bring all buttons back!
  */
 function resetDrawings() {
+  
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = ss.getActiveSheet();
   sheet.getDrawings().forEach((d, i) => {
     d.setPosition(1+3*i, 1, 0, 0);
   });
+
 }
