@@ -26,4 +26,4 @@ drawings.forEach(d => {
 });
 ```
 
-This toggle function supports several buttons in the same sheet, adjusts their rows and columns as needed, and calls the assigned Apps Script function for each of them.
+This toggle function supports several buttons in the same sheet, sets their rows and columns as needed, and calls the assigned Apps Script function for each of them.
