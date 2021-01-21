@@ -1,6 +1,6 @@
 # Toggle drawings used as buttons in Google Sheets
 
-Sample code that shows how to use Google Sheets drawings as conventional UI buttons to invoke Apps Script functions. Code is based on this post ([Switching Buttons for Google Spreadsheet using Google Apps Script](https://tanaikech.github.io/2020/07/27/switching-buttons-for-google-spreadsheet-using-google-apps-script/)) by **Kanshi TANAIKE**, that demonstrates different ways of emulating the look and feel of standard buttons inside Google Sheets.
+Sample code that shows how to use Google Sheets drawings as conventional UI buttons to invoke Apps Script functions. Code is based on this post ([Switching Buttons for Google Spreadsheet using Google Apps Script](https://tanaikech.github.io/2020/07/27/switching-buttons-for-google-spreadsheet-using-google-apps-script/)) by **Kanshi Tanaike**, that demonstrates different ways of emulating the look and feel of standard buttons inside Google Sheets.
 
 More specifically, this function _very slightly_ improves upon Kanshi's _pattern 1_, where alternate drawings are used as a single button, that nevertheless **requires changing focus** from the current sheet to a temporary one and back again, which causes some flicker, for changes to visually take effect.
 
@@ -27,3 +27,5 @@ drawings.forEach(d => {
 ```
 
 This toggle function supports several buttons in the same sheet, sets their rows and columns as needed, and calls the assigned Apps Script function for each of them.
+
+👉 [Sample spreadsheet](https://docs.google.com/spreadsheets/d/1whLw7VkSExintQyPkah5qoP6j6KY8s_QFHweJC4I0Qg/template/preview)
