@@ -28,4 +28,4 @@ drawings.forEach(d => {
 
 This toggle function supports several buttons in the same sheet, sets their rows and columns as needed, and calls the assigned Apps Script function for each of them.
 
-👉 [Sample spreadsheet](https://docs.google.com/spreadsheets/d/1whLw7VkSExintQyPkah5qoP6j6KY8s_QFHweJC4I0Qg/template/preview)
+👉 [Sample spreadsheet](https://docs.google.com/spreadsheets/d/1whLw7VkSExintQyPkah5qoP6j6KY8s_QFHweJC4I0Qg/template/preview) 👈
