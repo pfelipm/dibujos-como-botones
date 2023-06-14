@@ -13,8 +13,8 @@ const button2_Of = () => switching('button2_Of');
 
 // Button coordinates inside sheet
 const buttonsRowCol = [
-  {name: 'button1', row: 3, col: 3, function: test1},
-  {name: 'button2', row: 6, col: 3, function: test2}
+  { name: 'button1', row: 3, col: 3, function: test1 },
+  { name: 'button2', row: 6, col: 3, function: test2 }
 ];
 
 /**
@@ -31,7 +31,7 @@ function switching(name) {
   // Get row and col for current drawing (button)
   const currentDrawingName = drawings[0].getOnAction() == name ? name : drawings[1].getOnAction();
   const buttonRowCol = buttonsRowCol.find(b => b.name == currentDrawingName.slice(0, -3));
-  
+
   // Toggle button status by moving appropiate drawing beyond sheet bounds before processing,
   // moving out of sight does not require changing focus to / from another sheet to refresh!
   let buttonStatus;
@@ -47,7 +47,7 @@ function switching(name) {
       buttonStatus = d.getOnAction().slice(-3) == '_On' ? 'active' : 'inactive';
     }
   });
-  
+
   // Invoke button's function
   buttonRowCol.function(buttonStatus);
 }
@@ -55,22 +55,22 @@ function switching(name) {
 /**
  * Function invoked by button test 1
  */
-function test1(buttonStatus) {SpreadsheetApp.getActiveSpreadsheet().toast(`Test1() has been called, button has ${buttonStatus} color.`);}
+function test1(buttonStatus) { SpreadsheetApp.getActiveSpreadsheet().toast(`Test1() has been called, button has ${buttonStatus} color.`); }
 
 /**
  * Function invoked by button test 2
  */
-function test2(buttonStatus) {SpreadsheetApp.getActiveSpreadsheet().toast(`Test2() has been called, button has ${buttonStatus} color.`);}
+function test2(buttonStatus) { SpreadsheetApp.getActiveSpreadsheet().toast(`Test2() has been called, button has ${buttonStatus} color.`); }
 
 /**
  * Aux: Bring all buttons back!
  */
 function resetDrawings() {
-  
+
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const sheet = ss.getActiveSheet();
   sheet.getDrawings().forEach((d, i) => {
-    d.setPosition(1+3*i, 1, 0, 0);
+    d.setPosition(1 + 3 * i, 1, 0, 0);
   });
 
 }
